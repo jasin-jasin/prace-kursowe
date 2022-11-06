@@ -12,6 +12,8 @@
 
 #include <iostream>
 
+// trojkat prostokatny
+
 int main () {
     int n = 0;
     int licznik_dopoki = 1;
@@ -28,4 +30,27 @@ int main () {
         }   
         std::cout << "\n";
     }
+    
+    std::cout << "--------------\n";
+    
+ // trojkat choinka   
+   
+        licznik_dopoki = 1;
+        licznik_petli = 1;
+    
+        for (licznik_petli; licznik_petli <= n; licznik_petli += 1) // w liczniku pętli zewnętrzenej przechowujemy numer wiersza, którym się znajdujemy
+//// tutaj trzeba wstawić pętlę wstawiająca spacje !!!!        
+    {
+        licznik_dopoki = 1;
+        for (licznik_dopoki; licznik_dopoki <= 2 * licznik_petli; licznik_dopoki +=1) // ponieważ w liczniku petli przechowujemy wiersz, w którym się znajdujemy, to ten for wykona się tyle razy; dlatego w 2 rzędzie mamy 2 #
+        {
+            std::cout << "#";
+        }   
+        std::cout << "\n";
+    }
+    
+    std::cout << "--------------\n";
+    
+    
+    
 }

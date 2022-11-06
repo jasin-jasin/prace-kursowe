@@ -32,3 +32,9 @@ int main () {
             std::cout << "Liczba z jest największa\n";
         }
 }
+
+// int max = a;
+// if (b > max)
+//      max = b;
+// if (c > max);
+//      max = c;

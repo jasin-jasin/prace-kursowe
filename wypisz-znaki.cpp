@@ -11,7 +11,7 @@ int main () {
     
     while (licznik <= n)
     {std::cout << "#";
-    licznik = licznik + 1;    
+    licznik = licznik + 1;    // licznik += 1;
     }
     std::cout << "\n";
 }

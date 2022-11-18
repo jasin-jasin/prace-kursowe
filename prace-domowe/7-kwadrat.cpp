@@ -18,7 +18,7 @@ int main () {
     std::cout << "Podaj o jakim boku zrobić kwadrat: ";
     std::cin >> n;
 
-    for ( ; licznik_wierszy <=n; licznik_wierszy += 1)
+    while (licznik_wierszy <=n)
     {
         if (licznik_wierszy % 2 !=0)
         {
@@ -35,6 +35,7 @@ int main () {
         licznik_wewn_1 = licznik_wewn_1 + 1;    // licznik += 1;
             }
         std::cout << "\n";
+        licznik_wierszy = licznik_wierszy+1;
         }
         else {
 
@@ -49,9 +50,9 @@ int main () {
                 std::cout << "0";
                 }
         licznik_wewn_2 = licznik_wewn_2 + 1;    // licznik += 1;
-        }
+            }
         std::cout << "\n";
+        licznik_wierszy = licznik_wierszy+1;
         }
-    std::cout << "Licznik wierszy wynosi: " << licznik_wierszy;
     }
 }

@@ -19,7 +19,6 @@ int main () {
     int x = 0;
     std::cout << "Podaj liczbę: ";
     std::cin >> x;
-    if (x == 1) {
     if (czy_pierwsza (x) == true)
     {
     std::cout << "Liczba " <<  x << " jest liczbą pierwszą: ";
@@ -28,7 +27,5 @@ int main () {
     {
     std::cout << "Liczba " <<  x << " nie jest liczbą pierwszą: ";        
     }
-    std::cout << "\n";}
-    
-    std::cout << "Liczba " <<  x << " nie jest liczbą pierwszą: ";
+    std::cout << "\n";
 }

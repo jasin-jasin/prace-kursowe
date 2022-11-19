@@ -14,7 +14,6 @@ bool czy_pierwsza (int x) {
     return wynik;
 }
 
-
 int main () {
     int x = 0;
     std::cout << "Podaj liczbę: ";

@@ -7,7 +7,7 @@
     
 int suma_dzielnikow (int x) {
     int suma = 0;
-    for (int n = 1; n < x; n = n+1) {
+    for (int n = 1; n < x; n = n+1) { // alternatywny zapis (;; i +=1) oznacza że zwiększaj licznik i o 1; i+=2 - zwiększaj o 2; i +=-1 zmniejszaj o 1)
         if (x % n == 0)
         suma = n + suma;
     }

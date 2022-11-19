@@ -20,6 +20,17 @@ int wartosc_bezwzgledna (int x) {
     }
 }
 
+// wersja prostsza if (x<0) return x;
+//                      return -x;
+// wersja z jednym returnem
+// if (x<0) 
+// x = -x;
+// return x;
+//
+// wersja z operatorem trój argementowym:
+// ? - operator trojargumentowy
+// warunek ? wartosc_jesli_prawda : warunek_jesli_falszreturn x < 0 ? -x : x; (jeśli x // <0 to zwróć minus x, jeśli x > 0 to zwróć x)
+
 int maks (int a, int b) {
     if (a > b) {
         return a;
@@ -29,6 +40,12 @@ int maks (int a, int b) {
         return b;
     }
 }
+
+// prościej: if (a>b) return a;
+//              return b;
+//
+// return a > b ? a : b;
+
 
 int main () {
     int a = 0, b= 0, x = 0;

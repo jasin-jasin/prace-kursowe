@@ -10,15 +10,13 @@
 #include <iostream>
     
 int fibonacci (int n) {
-    int wynik = 0;
     if (n == 1)
         return 1;
     if (n == 2)
         return 1;
     for (int i = 3; i <= n; n += 1)
     {
-    wynik = fibonacci (n-1) + fibonacci (n-2);
-    return wynik;
+    return fibonacci (n-1) + fibonacci (n-2);
     }
 }
 

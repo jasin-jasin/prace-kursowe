@@ -4,7 +4,8 @@
 
 # include <iostream>
 
-bool czy_rowne (int* tab1, int x, int* tab2, int y) 
+bool czy_rowne (const int* tab1, int x, const int* tab2, int y) 
+// użycie consta zapobiega przypadkowej modyfikacji tablicy 
     {
     if (x != y) {
         return false;

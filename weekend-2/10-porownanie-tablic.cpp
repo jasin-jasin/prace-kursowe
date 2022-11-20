@@ -6,16 +6,16 @@
 
 bool czy_rowne (int* tab1, int x, int* tab2, int y) 
     {
-    if (x != y) 
+    if (x != y) {
         return false;
-    else {
+    }
     for (int i = 0; i < x; i += 1) // przechodzimy po tablicy która ma n elementów
         {
             if (tab1[i] != tab2[i]) 
-                {return false;
+                {
+                return false;
                 }
         }
-    }
     return true;
 }        
 

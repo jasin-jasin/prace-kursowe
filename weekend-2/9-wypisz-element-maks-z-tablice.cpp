@@ -3,7 +3,7 @@
 
 # include <iostream>
 
-// funkcja przyjmuje adres, gdzie zaczyna się tablica, oraz ile elementów zawiera tablica
+// funkcja przyjmuje adres, gdzie zaczyna się tablica czyli jej adres, dlaetgo int* tab, oraz ile elementów zawiera tablica
 
 int wypisz_najwiekszy (int* tab, int n) 
     {

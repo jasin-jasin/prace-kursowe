@@ -8,7 +8,7 @@ int main () {
     int tab [rozmiar]; 
     for  (int i = 0; i < rozmiar; i += 1) 
     {
-        std::cout << "Podaj " << i+1 << " liczbę: " << "\n";
+        std::cout << "Podaj " << i+ 1 << " liczbę: " << "\n";
         std::cin >> tab[i];   // robimy pętle, i wpisujemy kolejne liczby do tablicy począwszy od tab[0]
     }
     for  (int i = rozmiar - 1; i >= 0; i -= 1)

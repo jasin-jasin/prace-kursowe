@@ -26,5 +26,5 @@ int main () {
         std::cout << "Podaj " << i+ 1 << " liczbę: " << "\n";
         std::cin >> tab[i];   // robimy pętle, i przyjmujemy kolejne liczby do tablicy począwszy od tab[0]
     }
-    std::cout << "Nawiększy element w tabilcy to: " << wypisz_najwiekszy (tab, rozmiar) << "\n";
+    std::cout << "Nawiększy element w tabilcy to: " << wypisz_najwiekszy (tab, rozmiar) << "\n"; // tab - to jest przekazanie adresu tablicy
 }

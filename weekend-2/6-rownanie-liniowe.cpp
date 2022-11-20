@@ -14,7 +14,7 @@ int rownanie_liniowe (double a,  double b, double* rozwiazanie)
     if (a == 0.0 && b != 0.0)
         return 0;
     else {
-        *rozwiazanie = -b/a; // dereferencja
+        *rozwiazanie = -b/a; // dereferencja, pod adres rozwiazanie wpisujemy -b/a
         return 1;
     }
 }
@@ -34,7 +34,7 @@ int main () {
     std::cin >> a;
     std::cout << "Podaj liczbę b: ";
     std::cin >> b;   
-    ile = rownanie_liniowe (a, b, &rozwiazanie);
+    ile = rownanie_liniowe (a, b, &rozwiazanie); // przekazujemy adres rozwiazanie
     if (ile == -1)
     {
      std::cout << "Równanie liniowe ma nieskończenie wiele rozwiązań" ;
@@ -44,5 +44,5 @@ int main () {
     std::cout << "Równanie liniowe nie ma rozwiązań" ;
     }
     if (ile == 1)
-    std::cout << "Liczba równania liniowego 0 = ax +b wynosi: " << ile << " i wynosi ono " << rozwiazanie << "\n";
+    std::cout << "Liczba równania liniowego 0 = ax +b wynosi: " << ile << " i wynosi ono " << rozwiazanie << "\n"; // wyciaganie rozwiazanie, ktore funkcja wpisała pod wskzany adres
 }

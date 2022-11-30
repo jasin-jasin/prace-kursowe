@@ -11,17 +11,50 @@
 
 int rownanie_liniowe (double a,  double b, double c, double* rozw1, double* rozw2)
     { double wyroznik = 0.0;
-        wyroznik = b * b - 4 * a * c;
-    if (wyroznik < 0)
+    if (a ==0 && b == 0 && c == 0)
         return -1;
-    if (wyroznik == 0)
-        *rozw1 = -b / 2 * a;
+    if (a != 0 && b != 0 && c !=0) {   // równanie kwadratowe zupełne
+        wyroznik = (b * b) - (4 * a * c);
+        if (wyroznik < 0)
+        return -1;
+        if (wyroznik == 0) {
+        *rozw1 = (-1 * b) / (2 * a);
         return 1;
-    else {
-        *rozw1 = (-b - sqrt(wyroznik))/ 2 * a; // dereferencja, pod adres rozw1 wpisujemy pierwsze rozwiązanie rówania kwadratowego
-        *rozw2 = (-b + sqrt(wyroznik))/ 2 * a; // dereferencja, pod adres rozw2 wpisujemy drugie rozwiązanie rówania kwadratowego
+        }
+        else {
+        *rozw1 = ((-1 * b) - sqrt(wyroznik))/ (2 * a); // dereferencja, pod adres rozw1 wpisujemy pierwsze rozwiązanie rówania kwadratowego
+        *rozw2 = ((-1 * b) + sqrt(wyroznik))/ (2 * a); // dereferencja, pod adres rozw2 wpisujemy drugie rozwiązanie rówania kwadratowego
         return 2;
+            }
+        }
+    if (a !=0 && ( b == 0 || c == 0))
+        {
+        if (b == 0 && c == 0)
+            {
+            *rozw1 = 0;
+            return 1;
+            }
+        if (b !=0 && c == 0)
+        {
+            *rozw1 = 0;
+            *rozw2 = (-1 * b) / a;
+            return 2;
+        }
+        if (b == 0 && c != 0)
+        {
+            wyroznik = a * c;
+            if (wyroznik > 0)
+                return -1;
+            else
+            {
+                *rozw1 = sqrt ((-1 * c) / a);
+                *rozw2 = -1 * (sqrt ((-1 * c) / a));
+                return 2;
+            }
+        }
+
     }
+return 0;
 }
 
 // alternatywny zapis warunku:
@@ -37,7 +70,7 @@ int main () {
     double rozw1 = 0.0;
     double rozw2 = 0.0;
     int ile = 0;
-    std::cout << "Program sprawdza liczbę rozwiązań równania 0 = a * x^2 + b * x + c i jeśli istnieją to podaje te rozwiązania ";
+    std::cout << "Program sprawdza liczbę rozwiązań równania 0 = a * x^2 + b * x + c i jeśli istnieją to podaje te rozwiązania \n";
     std::cout << "Podaj liczbę a: ";
     std::cin >> a;
     std::cout << "Podaj liczbę b: ";
@@ -47,7 +80,7 @@ int main () {
     ile = rownanie_liniowe (a, b, c, &rozw1, &rozw2); // przekazujemy adresy obu rozwiązań
     if (ile == -1)
     {
-     std::cout << "Równanie kwadratowe nie rozwiązań / ma nieskończenie wiele rozwiązań" ;
+     std::cout << "Równanie kwadratowe nie rozwiązań / ma nieskończenie wiele rozwiązań \n" ;
     }
     if (ile == 1)
     {

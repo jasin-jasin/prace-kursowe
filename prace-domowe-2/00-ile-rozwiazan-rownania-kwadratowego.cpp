@@ -12,12 +12,23 @@
 int rownanie_liniowe (double a,  double b, double c, double* rozw1, double* rozw2)
     { double wyroznik = 0.0;
     if (a == 0)   			// jeśli a jest 0 to nie jest równanie kwadratowe, tylko liniowe.
+    {  
+    if (b == 0.0 && c == 0.0)		// liniowe ma nieskończenie wiele rozwiązań
+        return -3;			
+    if (b == 0.0 && c != 0.0)		// liniowe nie ma rozwiązań
         return -2;
+    else {
+        *rozw1 = -c/b; // dereferencja, pod adres rozwiazanie wpisujemy rozwiązanie równania liniowego
+        return 3;
+	 }
+    }
+    
     else {   // równanie kwadratowe zupełne
         wyroznik = (b * b) - (4 * a * c);  // jeśli a różne 0, to liczymy wyróżnik równania kwadaratowego
-        if (wyroznik < 0)
-        return -1;
-        if (wyroznik == 0) {
+        if (wyroznik < 0)		// brak rozwiązań równania kwadratowego
+        return -1;			
+        if (wyroznik == 0)		// jedno rozwiązanie równania kwadratowego 
+	{
         *rozw1 = (-1 * b) / (2 * a);
         return 1;
         }
@@ -45,18 +56,27 @@ int main () {
     std::cout << "Podaj liczbę c: ";
     std::cin >> c;
     ile = rownanie_liniowe (a, b, c, &rozw1, &rozw2); // przekazujemy adresy obu rozwiązań
+    if (ile == -3)
+    {
+     std::cout << "To nie jest równanie kwadratowe tylko liniowe i ma nieskończenie wiele rozwiązań \n" ;
+    }
     if (ile == -2)
-     {
-     std::cout << "To nie jest równanie kwadratowe tylko liniowe \n" ;
+    {
+     std::cout << "To nie jest równanie kwadratowe tylko liniowe i nie ma rozwiązań \n" ;
     }
     if (ile == -1)
     {
-     std::cout << "Równanie kwadratowe nie rozwiązań / ma nieskończenie wiele rozwiązań \n" ;
+     std::cout << "To jest równanie kwadratowe które nie ma rozwiązań \n" ;
     }
     if (ile == 1)
     {
-    std::cout << "Równanie kwadratowe ma jedno rozwiązanie i wynosi ono: " << rozw1 << "\n";
+    std::cout << "Jest to równanie kwadratowe które ma jedno rozwiązanie i wynosi ono: " << rozw1 << "\n";
     }
     if (ile == 2)
     std::cout << "Liczba rozwiązań równania kwadratowego wynosi: " << ile << " i są one następujące " << rozw1 << " oraz " << rozw2 << "\n"; // wyciaganie rozwiazanie, ktore funkcja wpisała pod wskzany adres
+    if (ile == 3)
+    {
+    std::cout << "Jest to równanie liniowe, które ma jedno rozwiązanie i wynosi ono: " << rozw1 << "\n";
+    }
+  
 }

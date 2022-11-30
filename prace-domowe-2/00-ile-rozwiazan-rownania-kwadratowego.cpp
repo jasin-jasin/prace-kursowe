@@ -10,11 +10,11 @@
 #include <cmath>
 
 int rownanie_liniowe (double a,  double b, double c, double* rozw1, double* rozw2)
-    { double wyroznik = 1.0;
-    if (a ==0 && b == 0 && c == 0)
-        return -1;
-    if (a != 0 && b != 0 && c !=0) {   // równanie kwadratowe zupełne
-        wyroznik = (b * b) - (4 * a * c);
+    { double wyroznik = 0.0;
+    if (a == 0)   			// jeśli a jest 0 to nie jest równanie kwadratowe, tylko liniowe.
+        return -2;
+    else {   // równanie kwadratowe zupełne
+        wyroznik = (b * b) - (4 * a * c);  // jeśli a różne 0, to liczymy wyróżnik równania kwadaratowego
         if (wyroznik < 0)
         return -1;
         if (wyroznik == 0) {
@@ -27,40 +27,7 @@ int rownanie_liniowe (double a,  double b, double c, double* rozw1, double* rozw
         return 2;
             }
         }
-    if (a !=0 && ( b == 0 || c == 0))
-        {
-        if (b == 0 && c == 0)
-            {
-            *rozw1 = 0;
-            return 1;
-            }
-        if (b !=0 && c == 0)
-        {
-            *rozw1 = 0;
-            *rozw2 = (-1 * b) / a;
-            return 2;
-        }
-        if (b == 0 && c != 0)
-        {
-            wyroznik = a * c;
-            if (wyroznik > 0)
-                return -1;
-            else
-            {
-                *rozw1 = sqrt ((-1 * c) / a);
-                *rozw2 = -1 * (sqrt ((-1 * c) / a));
-                return 2;
-            }
-        }
-
-    }
-return 0;
 }
-
-// alternatywny zapis warunku:
-// if (a != 0.0) {return 1} (bo wtedy 1 rozwiązanie)
-// else if  (b !=0.0) {return 0} (bo wtedy wiemy  że a jest 0)
-// else  return -1)
 
 
 int main () {
@@ -76,8 +43,12 @@ int main () {
     std::cout << "Podaj liczbę b: ";
     std::cin >> b;
     std::cout << "Podaj liczbę c: ";
-    std::cin >> b;
+    std::cin >> c;
     ile = rownanie_liniowe (a, b, c, &rozw1, &rozw2); // przekazujemy adresy obu rozwiązań
+    if (ile == -2)
+     {
+     std::cout << "To nie jest równanie kwadratowe tylko liniowe \n" ;
+    }
     if (ile == -1)
     {
      std::cout << "Równanie kwadratowe nie rozwiązań / ma nieskończenie wiele rozwiązań \n" ;

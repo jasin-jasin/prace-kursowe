@@ -10,7 +10,7 @@
 #include <cmath>
 
 int rownanie_liniowe (double a,  double b, double c, double* rozw1, double* rozw2)
-    { double wyroznik = 0.0;
+    { double wyroznik = 1.0;
     if (a ==0 && b == 0 && c == 0)
         return -1;
     if (a != 0 && b != 0 && c !=0) {   // równanie kwadratowe zupełne

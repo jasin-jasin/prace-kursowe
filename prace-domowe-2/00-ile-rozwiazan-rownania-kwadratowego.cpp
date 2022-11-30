@@ -23,7 +23,7 @@ int rownanie_liniowe (double a,  double b, double c, double* rozw1, double* rozw
 	 }
     }
     
-    else {   // równanie kwadratowe zupełne
+    else {   				// równanie kwadratowe zupełne
         wyroznik = (b * b) - (4 * a * c);  // jeśli a różne 0, to liczymy wyróżnik równania kwadaratowego
         if (wyroznik < 0)		// brak rozwiązań równania kwadratowego
         return -1;			

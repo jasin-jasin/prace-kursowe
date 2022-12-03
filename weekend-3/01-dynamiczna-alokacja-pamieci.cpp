@@ -18,4 +18,10 @@ int main () {
     p = new int;
     std::cout << p << '\n';
     // pakiet valgrind pod konsolą 
+    // podwójne uwolnienie pamięci jest błędem, program zostanie ubity 
+    
+    r = new int [10];  // tzw. new tablicowy, rezerwujemy sobie pamięć na 10 intów
+    // rozmiar tablicy może być zmienną! :D
+    for (int i = 0; i < 10; i++) {
+        std::cout << r[i] << '\n';
 }

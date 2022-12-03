@@ -20,8 +20,11 @@ int main () {
     // pakiet valgrind pod konsolą 
     // podwójne uwolnienie pamięci jest błędem, program zostanie ubity 
     
-    r = new int [10];  // tzw. new tablicowy, rezerwujemy sobie pamięć na 10 intów
+    int* r = new int [10];  // tzw. new tablicowy, rezerwujemy sobie pamięć na 10 intów
     // rozmiar tablicy może być zmienną! :D
+    r[4] = 123;
     for (int i = 0; i < 10; i++) {
         std::cout << r[i] << '\n';
+    }
+    delete[] p; // pamięc zaalokowaną za pomocą new[] (tablicowego) musimy zwolnić za pomocą delete[] ; mieszanie new [] z delete oraz new z delete[] to błąd
 }

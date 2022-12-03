@@ -34,7 +34,7 @@ struct F {     // struktura z różnych 3 typów zmiennych
 };
 
 struct G {
-    G* b; // zmienna typu wskaźnikowego, wskaźnik na niekompletny typ, bo rozmiar typu wskaźnikowego jest zawsze taki sam
+    G* b; // zmienna typu wskaźnikowego, wskaźnik na niekompletny typ, bo rozmiar typu wskaźnikowego jest zawsze taki sam - gryby było samo G - to wtedy to nie zadziała
     int a;
     
 };

@@ -1,0 +1,25 @@
+// Stworz strukturę Ulamek (licznik i mianownik) oraz napisz funkcje:
+//     - void wypisz(const Ulamek& u)
+//     - Ulamek stworz(int a, int b) - tworzy Ulamek o liczniku a i mianowniku b
+//     - Ulamek mnoz(const Ulamek& a, const Ulamek& b) - zwraca wynik możenia Ulamkow a i b
+#include <iostream>
+
+void wypisz(const ulamek& u) {
+    
+}
+
+ulamek stworz(int a, int b) {
+    int licznik = 0;
+    int mianownik = 0;
+    ulamek.licznik = a;
+    ulamek.mianownik = b;
+}
+
+ulamek mnoz(const ulamek& a, const ulamek& b) {
+    
+}
+
+int main() {
+    ulamek a = stworz (1, 2);
+    ulamek b = stworz (3, 4);
+}

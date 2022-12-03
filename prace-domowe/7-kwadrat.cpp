@@ -34,6 +34,7 @@ int main () {
             }
         licznik_wewn_1 = licznik_wewn_1 + 1;    // licznik += 1;
             }
+        licznik_wewn_1 = 1;
         std::cout << "\n";
         licznik_wierszy = licznik_wierszy+1;
         }
@@ -51,6 +52,7 @@ int main () {
                 }
         licznik_wewn_2 = licznik_wewn_2 + 1;    // licznik += 1;
             }
+        licznik_wewn_2 = 1;
         std::cout << "\n";
         licznik_wierszy = licznik_wierszy+1;
         }

@@ -6,9 +6,10 @@
 
 struct ulamek {
     int licznik;
-    int mianownik;
-    void wypisz_ulamek () // to staje się metodą
-    {
+    int mianownik;      
+    void wypisz_ulamek () const {     // to staje się metodą
+    // const po nawiasach oznacza, że ta metoda nie modyfikuje obiketu, na którym jest wywoływana
+    // na const obiektach można wywoływać tylko const metody
     std::cout << "(" << licznik << "/" << mianownik << ")" << '\n';
     }
     void inicjalizuj (int a, int b) 
@@ -16,13 +17,12 @@ struct ulamek {
     licznik = a;
     mianownik = b;
     }
-    ulamek ulamek_mnoz(const ulamek& b) {  // metoda ma dostęp do obiektu, na który m jest wywoływana, więc może przyjąc tylko jeden argument (przy dwóch ułamkach, przy trzech - musiała by przyjąc dwa argumenty
+    ulamek ulamek_mnoz(const ulamek& b) const {  
+        // metoda ma dostęp do obiektu, na który m jest wywoływana, więc może przyjąc tylko jeden argument (przy dwóch ułamkach, przy trzech - musiała by przyjąc dwa argumenty
         ulamek c;
         c.inicjalizuj (licznik * b.licznik, mianownik * b.mianownik);
         return c;
-}
-    
-    
+    }
 };
 
 // void wypisz_ulamek (const ulamek& u) {

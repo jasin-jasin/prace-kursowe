@@ -16,7 +16,7 @@ struct ulamek {
     licznik = a;
     mianownik = b;
     }
-    ulamek ulamek_mnoz(const ulamek& b) {
+    ulamek ulamek_mnoz(const ulamek& b) {  // metoda ma dostęp do obiektu, na który m jest wywoływana, więc może przyjąc tylko jeden argument (przy dwóch ułamkach, przy trzech - musiała by przyjąc dwa argumenty
         ulamek c;
         c.inicjalizuj (licznik * b.licznik, mianownik * b.mianownik);
         return c;

@@ -4,22 +4,42 @@
 //     - Ulamek mnoz(const Ulamek& a, const Ulamek& b) - zwraca wynik możenia Ulamkow a i b
 #include <iostream>
 
-void wypisz(const ulamek& u) {
-    
+struct ulamek {
+    int licznik;
+    int mianownik;
+};
+
+void wypisz_ulamek (const ulamek& u) {
+    std::cout << "(" << u.licznik << "/" << u.mianownik << ")" << '\n';
 }
 
-ulamek stworz(int a, int b) {
-    int licznik = 0;
-    int mianownik = 0;
-    ulamek.licznik = a;
-    ulamek.mianownik = b;
+ulamek ulamek_stworz(int a, int b) {
+    ulamek u;
+    u.licznik = a;
+    u.mianownik = b;
+    return u;
 }
 
-ulamek mnoz(const ulamek& a, const ulamek& b) {
-    
+ulamek ulamek_mnoz(const ulamek& a, const ulamek& b) {
+        ulamek c = ulamek_stworz (a.licznik * b.licznik, a.mianownik * b.mianownik);
+        return c;
 }
 
 int main() {
-    ulamek a = stworz (1, 2);
-    ulamek b = stworz (3, 4);
+    ulamek a = ulamek_stworz (1, 2);
+    ulamek b = ulamek_stworz (3, 4);
+    wypisz_ulamek (a);
+    wypisz_ulamek (b);
+    wypisz_ulamek (ulamek_mnoz(a,b));
 }
+
+/*
+ * 
+ * struct ulamek {
+    int licznik;
+    int mianownik;
+};
+    ulamek u;
+    u.licznik = 1;
+    u.mianownik = 2;
+    wypisz_ulamek (u);*/

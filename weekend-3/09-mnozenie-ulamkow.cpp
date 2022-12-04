@@ -7,11 +7,15 @@
 struct ulamek {
     int licznik;
     int mianownik;
+    void wypisz_ulamek () // to staje się metodą
+    {
+    std::cout << "(" << licznik << "/" << mianownik << ")" << '\n';
+    }
 };
 
-void wypisz_ulamek (const ulamek& u) {
-    std::cout << "(" << u.licznik << "/" << u.mianownik << ")" << '\n';
-}
+// void wypisz_ulamek (const ulamek& u) {
+//     std::cout << "(" << u.licznik << "/" << u.mianownik << ")" << '\n';
+// }
 
 ulamek ulamek_stworz(int a, int b) {
     ulamek u;
@@ -28,18 +32,11 @@ ulamek ulamek_mnoz(const ulamek& a, const ulamek& b) {
 int main() {
     ulamek a = ulamek_stworz (1, 2);
     ulamek b = ulamek_stworz (3, 4);
-    wypisz_ulamek (a);
-    wypisz_ulamek (b);
-    wypisz_ulamek (ulamek_mnoz(a,b));
+//     wypisz_ulamek (a);                // podejście standardowe
+//     wypisz_ulamek (b);
+//     wypisz_ulamek (ulamek_mnoz(a,b));
+    a.wypisz_ulamek ();
+    b.wypisz_ulamek ();
+    ulamek_mnoz(a,b).wypisz_ulamek ();
+    
 }
-
-/*
- * 
- * struct ulamek {
-    int licznik;
-    int mianownik;
-};
-    ulamek u;
-    u.licznik = 1;
-    u.mianownik = 2;
-    wypisz_ulamek (u);*/

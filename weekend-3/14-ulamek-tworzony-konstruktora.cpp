@@ -10,6 +10,8 @@ struct ulamek {
     {
     licznik = a;
     mianownik = b;
+    if (mianownik == 0)
+        mianownik = 1;
     }
     ulamek ulamek_mnoz(const ulamek& b) const { 
         ulamek c {licznik * b.licznik, mianownik * b.mianownik};

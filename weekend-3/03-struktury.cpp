@@ -25,10 +25,6 @@ void wypisz_punkt (punkt p){
 // w CPP możemy stworzyć kilka funkcji o tej samej nazwie pod warunkiem, że róznią się liczbą lub typem argumentów. W C nie jest to możliwe - funkcja MUSI mieć unikalną nazwę
 // fachowo to się nazywa przeciążania funkcji - przeciążanie funkcji
 
-void wypisz_ulamek (ulamek u) {
-    std::cout << "(" << u.licznik << "/" << u.mianownik << ")" << '\n';
-    
-}
 
 int main () {
     punkt p; // definiujemy zmienną typu punkt

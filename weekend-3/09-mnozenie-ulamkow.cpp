@@ -11,32 +11,49 @@ struct ulamek {
     {
     std::cout << "(" << licznik << "/" << mianownik << ")" << '\n';
     }
+    void inicjalizuj (int a, int b) 
+    {
+    licznik = a;
+    mianownik = b;
+    }
+    ulamek ulamek_mnoz(const ulamek& b) {
+        ulamek c;
+        c.inicjalizuj (licznik * b.licznik, mianownik * b.mianownik);
+        return c;
+}
+    
+    
 };
 
 // void wypisz_ulamek (const ulamek& u) {
 //     std::cout << "(" << u.licznik << "/" << u.mianownik << ")" << '\n';
 // }
 
-ulamek ulamek_stworz(int a, int b) {
-    ulamek u;
-    u.licznik = a;
-    u.mianownik = b;
-    return u;
-}
+// ulamek ulamek_stworz(int a, int b) {
+//     ulamek u;
+//     u.licznik = a;
+//     u.mianownik = b;
+//     return u;
+// }
 
-ulamek ulamek_mnoz(const ulamek& a, const ulamek& b) {
-        ulamek c = ulamek_stworz (a.licznik * b.licznik, a.mianownik * b.mianownik);
-        return c;
-}
+// ulamek ulamek_mnoz(const ulamek& a, const ulamek& b) {
+//         ulamek c = ulamek_stworz (a.licznik * b.licznik, a.mianownik * b.mianownik);
+//         return c;
+// }
 
 int main() {
-    ulamek a = ulamek_stworz (1, 2);
-    ulamek b = ulamek_stworz (3, 4);
+       ulamek a;
+       a.inicjalizuj(1,2);
+       ulamek b;
+       b.inicjalizuj(3,4);
+//     ulamek a = ulamek_stworz (1, 2);
+//     ulamek b = ulamek_stworz (3, 4);
 //     wypisz_ulamek (a);                // podejście standardowe
 //     wypisz_ulamek (b);
 //     wypisz_ulamek (ulamek_mnoz(a,b));
     a.wypisz_ulamek ();
     b.wypisz_ulamek ();
-    ulamek_mnoz(a,b).wypisz_ulamek ();
-    
+//    ulamek_mnoz(a,b).wypisz_ulamek ();
+        ulamek c = a.ulamek_mnoz (b);
+        c.wypisz_ulamek();
 }

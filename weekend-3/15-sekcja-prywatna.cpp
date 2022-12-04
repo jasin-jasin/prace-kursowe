@@ -25,6 +25,19 @@ public: // wszystko poniżej tego znacznik znajduje się w sekcji publicznej
         ulamek c {licznik * b.licznik, mianownik * b.mianownik};
         return c;
     }
+    // getter
+    int getMianownik () const {
+        return mianownik;
+    }
+        
+    // setter
+    int setMianownik (int x) {
+        if (x==0)
+            x=1;
+        return mianownik;
+    }
+    
+    
 };
 
 int main() {

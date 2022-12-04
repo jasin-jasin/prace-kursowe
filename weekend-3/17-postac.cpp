@@ -40,7 +40,10 @@ public:
     // przywraca postaci n punktów zdrowia. Zdrowie nie powinno przekraczać wartość maksymalnej. Leczenie martwej postaci nie powinno mieć efektu.
     void wylecz (int n) {
         if (czy_zyje() == 1) 
-            zdrowie = zdrowie + n;
+            { zdrowie = zdrowie + n;
+                if (zdrowie > max_zdrowie) 
+                    zdrowie = max_zdrowie;
+            }
         else std::cout << "" << '\n'; 
     }
  
@@ -56,6 +59,8 @@ int main () {
     ziomek.wypisz(); // wypisuje aktualny stan zdrowia 110/110
     ziomek.otrzymaj_obrazenia(15); // zmniejsza stan zdrowia o 15
     ziomek.wypisz(); // aktualny stan 95/110
+    ziomek.wylecz(30);
+    ziomek.wypisz();
     ziomek.otrzymaj_obrazenia (100);
     ziomek.wypisz(); // aktualny stan 0/110
 }

@@ -19,7 +19,7 @@ public:
     void wypisz () const;
     int rozmiar () const;
     void ustaw (int idx, int wartosc);
-    int zwroc  (int idx) const;
+    int& zwroc  (int idx) const;
     
 private: 
     
@@ -61,7 +61,7 @@ void Tablica::ustaw (int idx, int k) {
         
     }
     
-int Tablica::zwroc (int idx) const {
+int& Tablica::zwroc (int idx) const {
         return tab [idx];
     }
     
@@ -75,25 +75,28 @@ int Tablica::rozmiar () const {
     
 Tablica::~Tablica () {
         delete[] tab;
+        usun();
 }
         
 void Tablica::usun () {       
         delete[] tab;
     }
     
-void Tablica::operator=(const Tablica& t) {
-    std::cout << "kopiujący operator przypisania\n";
-    delete [] tab;
-    rozm = t.rozm; // ustawiamy rozmiar na taki sami jak w tablicy t
-    tab = new int [rozm];
-        for (int i = 0; i < rozm; i +=1 ) {
-            tab[i] = t.tab[i];
-        }
-    
+
+void Tablica::skopiuj(const Tablica& t) {
+    rozm = t.rozm; // ustawiamy rozmiar na taki sam jak w tablicy t
+    tab = new int[rozm];
+    for (int i = 0; i < rozm; i += 1) {
+        tab[i] = t.tab[i];
+    }
 }
     
-
-
+void Tablica::operator=(const Tablica& t) {
+    std::cout << "kopiujący operator przypisania\n";
+    usun();
+    skopiuj(t);    
+}
+    
 int main () {
     Tablica t{5};
     t.ustaw (0,10);
@@ -105,5 +108,7 @@ int main () {
     w.ustaw (3,30);
     w.wypisz ();
     t = w; // tu odbywa się przypisanie a nie jest wywołany konsktruktor kopiiujący
+    t.wypisz ();
+    t.zwroc (3) = 13;
     t.wypisz ();
 }

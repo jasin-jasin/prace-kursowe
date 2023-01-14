@@ -14,12 +14,17 @@ public:
     Tablica (const Tablica& t); // konstruktor kopiujący, przyjmuje przez referencję, a nie przez wskaźnik
     ~Tablica ();
     
+    void operator=(const Tablica& t); // kopiujący operator przypisania, - zmienia istniejący obiekt na podstawie
+    
     void wypisz () const;
     int rozmiar () const;
     void ustaw (int idx, int wartosc);
     int zwroc  (int idx) const;
     
 private: 
+    
+    void skopiuj(const Tablica& t); //
+    void usun(); /// metoda prywatna
     int* tab;
     int rozm;
 };
@@ -33,7 +38,16 @@ Tablica::Tablica (int n) {
          } 
          std::cout << '\n';
      }
-  
+
+Tablica::Tablica (const Tablica& t) {
+        rozm = t.rozm; // ustawiamy rozmiar na taki sami jak w tablicy t
+        tab = new int [rozm];
+        for (int i = 0; i < rozm; i +=1 ) {
+            tab[i] = t.tab[i];
+        }
+    }
+     
+     
 void  Tablica::wypisz () const {                 /// constami oznaczamy metody które nic nie modyfikują
         // TODO 
       for (int i = 0; i < rozm; i +=1) {
@@ -61,20 +75,35 @@ int Tablica::rozmiar () const {
     
 Tablica::~Tablica () {
         delete[] tab;
+}
+        
+void Tablica::usun () {       
+        delete[] tab;
     }
+    
+void Tablica::operator=(const Tablica& t) {
+    std::cout << "kopiujący operator przypisania\n";
+    delete [] tab;
+    rozm = t.rozm; // ustawiamy rozmiar na taki sami jak w tablicy t
+    tab = new int [rozm];
+        for (int i = 0; i < rozm; i +=1 ) {
+            tab[i] = t.tab[i];
+        }
+    
+}
     
 
 
 int main () {
-    int n;
-    std::cin >> n;
-    Tablica t{n};
-    for  (int i =0; i < t.rozmiar(); i += 1) 
-        t.ustaw (i, i);
-    t.wypisz(); // 0 0 0 0 0 
-    t.ustaw (1,123);
-    std::cout << t.zwroc (1) << '\n'; // 123
-    t.ustaw (3,15);
-    t.wypisz(); // 0 123 0 15 0
-//    t.zwolnij();
+    Tablica t{5};
+    t.ustaw (0,10);
+    Tablica q{t};
+    q.ustaw (2,20);
+    t.wypisz ();
+    q.wypisz ();
+    Tablica w = q; /// to jest to samo co Tablica w{q}
+    w.ustaw (3,30);
+    w.wypisz ();
+    t = w; // tu odbywa się przypisanie a nie jest wywołany konsktruktor kopiiujący
+    t.wypisz ();
 }

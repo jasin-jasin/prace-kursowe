@@ -41,7 +41,11 @@ public:
         return rozm;
     }
     
-    void zwolnij () {  // po wywołaniu zwolnij nie możemy już korzystać z obiektu
+//     void zwolnij () {  // po wywołaniu zwolnij nie możemy już korzystać z obiektu
+//         delete[] tab;
+//     }
+    
+    ~Tablica () {
         delete[] tab;
     }
     
@@ -62,5 +66,5 @@ int main () {
     std::cout << t.zwroc (1) << '\n'; // 123
     t.ustaw (3,15);
     t.wypisz(); // 0 123 0 15 0
-    t.zwolnij();
+//    t.zwolnij();
 }

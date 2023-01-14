@@ -12,31 +12,38 @@ class Tablica {
 public: 
     Tablica () {
         for (int i = 0; i <5; i +=1) {
-            std:cin >> tab [i] = 0
+            tab [i] = 0;
         } 
+        std::cout << '\n';
     }
   
     void  wypisz () const {                 /// constami oznaczamy metody które nic nie modyfikują
       for (int i = 0; i <5; i +=1) {
-            std::cout << tab [i] << "," << "\n";
-        }     
-
-    void ustaw (int j, int k) {
-            tab [j] = k;
-        }
+            std::cout << tab [i] << ",";
+        } 
+        std::cout << '\n';
+    }
+    
+    void ustaw (int idx, int k) {
+            tab [idx] = k;
+        
+    }
+    
+    int zwroc (int idx) const {
+        return tab [idx];
     }
     
 private: 
     int tab [5];
     
-}
+};
 
 
 int main () {
  Tablica t;
  t.wypisz(); // 0 0 0 0 0 
  t.ustaw (1,123);
- std::cout << t.daj (1) << "\n"; // 123
+ std::cout << t.zwroc (1) << '\n'; // 123
  t.ustaw (3,15);
  t.wypisz(); // 0 123 0 15 0
     

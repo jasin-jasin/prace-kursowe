@@ -5,12 +5,12 @@
 class Kwadrat {
 
 public:
-    Kwadrat (double x = 1.0);
+    Kwadrat (double x = 1.0); // wartosc domyslna jako obejscie problemu ze prostokat probuje wywolac konsktruktor bezargumentowy
     double policz_pole () const;
     double wypisz_bok () const;
     void nowy_bok (double x);
     
-private: 
+protected:    // takie pola są widoczne dla klas dziedziczących, a poza klasą zachowują się jak pola prywatne 
     double bok;
 };
 
@@ -24,7 +24,6 @@ public:
     void nowy_bok_b (double x);
     
 private: 
-    double bok_a;
     double bok_b;
 };  
 
@@ -51,7 +50,7 @@ void Kwadrat::nowy_bok (double x) {
 
      
 double Prostokat::policz_pole () const {                 /// constami oznaczamy metody które nic nie modyfikują
-        return bok_a*bok_b;
+        return bok*bok_b;
     }
 
 

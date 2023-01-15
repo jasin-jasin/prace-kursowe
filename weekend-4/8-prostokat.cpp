@@ -19,7 +19,20 @@ public:
 private: 
     double bok_a;
     double bok_b;
-};     
+}; 
+
+class Kwadrat {
+
+public:
+    Kwadrat (double x);
+    double policz_pole () const;
+    double wypisz_bok () const;
+    void nowy_bok (double x);
+    
+private: 
+    double bok;
+}; 
+
 
 Prostokat::Prostokat (double x, double y) {
     nowy_bok_a (x);
@@ -45,6 +58,23 @@ void Prostokat::nowy_bok_a (double x) {
 void Prostokat::nowy_bok_b (double x) {
     bok_b = x;
     }
+
+Kwadrat::Kwadrat (double x) {
+    nowy_bok(x);
+}
+     
+double Kwadrat::policz_pole () const {                 /// constami oznaczamy metody które nic nie modyfikują
+        return bok*bok;
+    }
+    
+double Kwadrat::wypisz_bok () const {
+        return bok;
+    }
+
+void Kwadrat::nowy_bok (double x) {
+    bok = x;
+    }
+    
     
 int main () {
     double x;
@@ -66,5 +96,15 @@ int main () {
     p.nowy_bok_b(x);
     std::cout << "Nowa długość drugiego boku wynosi: " << p.wypisz_bok_b () << "\n";    
     std::cout << "Pole nowego prostokąta wynosi: " <<     p.policz_pole () << "\n";
+    std::cout << "Podaj długość boku kwadratu: \n";
+    std::cin >> x;
+    Kwadrat k{x};
+    std::cout << "Długość boku wynosi: " << k.wypisz_bok () << "\n";
+    std::cout << "Pole tego kwadratu wynosi: " <<     k.policz_pole () << "\n";
+    std::cout << "Podaj nową długość boku kwadratu: \n";
+    std::cin >> y;
+    k.nowy_bok(y);
+    std::cout << "Nowa długość boku wynosi: " << k.wypisz_bok () << "\n";
+    std::cout << "Pole nowego kwadratu wynosi: " <<     k.policz_pole () << "\n";
     
 }

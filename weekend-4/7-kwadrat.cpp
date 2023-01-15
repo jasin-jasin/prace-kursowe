@@ -1,6 +1,9 @@
 // napisz klasę kwadrat, która będzie przechowywała informację o długości boku kwadratu (double) oraz będzie posiadać metodę polę zwracającą pole powierchni tego kwadratu
 // dodatkowo napisz metodę get, która wypisuje długość boku kwadratu oraz metodę set, która pozwala ustawić tą długość.
 
+// Napisz klasę Prostokąt, która będzie zaiweirać informacje o długościach boków prostokąta (double), będzie posiadać metodę polę, oraz gettery i settery do boków
+
+
 # include <iostream>
 
 class Kwadrat {

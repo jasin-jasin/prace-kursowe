@@ -5,12 +5,12 @@
 class Kwadrat {
 
 public:
-    Kwadrat (double x = 1.0); // wartosc domyslna jako obejscie problemu ze prostokat probuje wywolac konsktruktor bezargumentowy
+    Kwadrat (double x); // wartosc domyslna jako obejscie problemu ze prostokat probuje wywolac konsktruktor bezargumentowy
     double policz_pole () const;
     double wypisz_bok () const;
     void nowy_bok (double x);
     
-protected:    // takie pola są widoczne dla klas dziedziczących, a poza klasą zachowują się jak pola prywatne 
+private:    // można zrobić protected, bo takie pola są widoczne dla klas dziedziczących, a poza klasą zachowują się jak pola prywatne, ale zamiast tego można skorzystać z metody wypisz_bok dla kwadratu w metodzie liczącej pole prostokąta, zamiast sięgać do zmiennej bok przechowywanej w klasie prywatnej (linia 53 w kodzie)
     double bok;
 };
 
@@ -27,12 +27,14 @@ private:
     double bok_b;
 };  
 
-Kwadrat::Kwadrat (double x) {
+Kwadrat::Kwadrat (double x) 
+{
     nowy_bok(x);
 }
 
-Prostokat::Prostokat (double x, double y) {
-    nowy_bok (x);
+Prostokat::Prostokat (double x, double y) 
+: Kwadrat{x}  // lista inicjalizacyjna - Prostokat jeden bok przyjmuje z Kwadaru i drugi tworzy
+{
     nowy_bok_b (y);
 }
 
@@ -50,7 +52,7 @@ void Kwadrat::nowy_bok (double x) {
 
      
 double Prostokat::policz_pole () const {                 /// constami oznaczamy metody które nic nie modyfikują
-        return bok*bok_b;
+        return wypisz_bok()*bok_b;                      // korzystamy z metody wypisz_bok bo bok jest w klasie prywatnej
     }
 
 

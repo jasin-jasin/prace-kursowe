@@ -21,7 +21,10 @@ private:
 }; 
 
 class Pies : public Zwierz {
-    
+public:
+    void dajGlos () const {
+        std::cout << "Hau hau!\n";
+    }
     
 }; 
   
@@ -29,4 +32,7 @@ int main () {
     Pies z;
     z.setImie ("Burek");  /// jeśli nie ma takiej metody w klasie Pies, to szukamy takiej metody w klasie nadrzędnej 
     z.dajGlos ();
+    Pies p;
+    p.setImie ("Azor");
+    p.dajGlos ();
 }

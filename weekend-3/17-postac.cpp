@@ -1,4 +1,4 @@
-//Zadanie dodatkowe:
+ //Zadanie dodatkowe:
 // Dodaj do Postaci atrybut `sila` (przekazywany w konstruktorze) i napisz program przeprowadzający walkę na śmierć i życie pomiędzy 2 Postaciami. Postać zadaje tyle obrażeń ile wynosi jej siła
 
 #include <iostream>

@@ -33,7 +33,7 @@ Kwadrat::Kwadrat (double x)
 }
 
 Prostokat::Prostokat (double x, double y) 
-: Kwadrat{x}  // lista inicjalizacyjna - Prostokat jeden bok przyjmuje z Kwadaru i drugi tworzy
+: Kwadrat{x}  // lista inicjalizacyjna - Prostokat jeden bok przyjmuje z Kwadaru i drgui tworzy
 {
     nowy_bok_b (y);
 }

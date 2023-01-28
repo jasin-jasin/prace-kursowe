@@ -24,7 +24,18 @@ T wieksza (T a, T b) {
                             
 template <>
 const char* wieksza(const char* a, const char* b) {
+    std::cout << "zachodzi specjalizacja!!" << '\n';
     if (std::strcmp(a,b) > 0)           // żeby użyć strcmp musimy zainkludować cstring
+        return a;
+    return b;
+}
+
+                            // ZWYKŁE FUNKCJE MAJĄ PIERWSZEŃSTWO NAD SZABLONAMI
+                            // dopiero jak nie znajdziemy funkcji to sięgamy po szablon
+                            
+const char* wieksza(const char* a, const char* b) {
+    std::cout << "Wywołanie funkcji przed szablonem!!" << '\n';
+    if (std::strcmp(a,b) > 0)          
         return a;
     return b;
 }
@@ -45,4 +56,8 @@ int main () {
                                     // zatem przekazujemy wskaźnik na początkowy adres komórki pamięci, gdzie ona się zaczyna
                                     // to jest typ const char*
                                     // więc de facto porównujemy adresy
+
+    std::cout << wieksza<const char*>("abcd", "QWER") << '\n';
+                                    // zmuszenie kompilatora do sięgniecia po szablon
+                                    // zostawienie samych pustych <> mówi kompilatorowi że chcemy szablon - a z typem "masz sobie sam poradzić"
 }

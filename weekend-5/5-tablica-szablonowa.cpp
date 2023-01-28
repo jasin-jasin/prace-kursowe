@@ -12,7 +12,7 @@
 template <typename T>
 class Tablica {
 public: 
-    Tablica (int n);
+    Tablica ();
     Tablica (const Tablica& t); // konstruktor kopiujący, przyjmuje przez referencję, a nie przez wskaźnik
     ~Tablica ();
     
@@ -51,13 +51,13 @@ void Tablica<T>::dodaj (T x) {
 }
 
 template <typename T>
-Tablica<T>::Tablica (int n) {
+Tablica<T>::Tablica () {
          /// TODO new coś tam
 //          pojemnosc = n;
 //          tab = new T [n];
 //          rozm = n;
          pojemnosc = 1;
-         tab = new T [n];
+         tab = new T [1];
          rozm = 0;
          /*for (int i = 0; i < 5; i +=1) {
              tab [i] = 0;
@@ -131,16 +131,16 @@ void Tablica<T>::operator=(const Tablica& t) {
 }
     
 int main () {
-    Tablica<int> t{5};
+    Tablica<int> t{};
     t.wypisz();
     std::cout << '\n';
-    Tablica<double> tdouble{5};
+    Tablica<double> tdouble{};
     tdouble.wypisz();
     tdouble.dodaj(3.5);
     std::cout << '\n';
     tdouble.wypisz();
-    Tablica<char> tchar{'a'};
-    tchar.wypisz();
+//     Tablica<char> tchar{'a'};
+//     tchar.wypisz();
     Tablica<std::string> stringi;
     stringi.dodaj ("Ala");
     stringi.dodaj ("ma");   

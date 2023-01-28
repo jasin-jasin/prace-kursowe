@@ -4,7 +4,8 @@
 class Ulamek {
 public:
     Ulamek (int a, int b) : licznik{a}, mianownik{b} {}
-// private:  (zakomentowane z powodu linijki 13)
+    friend std::ostream& operator<<(std::ostream& os, const Ulamek& u); // oznaczenie "przyjaciela" - funkcja w drodze wyjątku może mieć dostęp do pól prywatnych
+private:    // (zakomentowane z powodu linijki 13) - ale jeśli funkcję zrobimy "zaprzyjaźnioną" to możemy odkomentować
     int licznik;
     int mianownik;
 };

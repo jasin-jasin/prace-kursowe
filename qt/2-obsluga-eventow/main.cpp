@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "przycisk.h"
 
 #include <QApplication>
 

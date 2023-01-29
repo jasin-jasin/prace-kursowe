@@ -18,3 +18,5 @@ private:
 
 };
 #endif // MYWIDGET_H
+
+
